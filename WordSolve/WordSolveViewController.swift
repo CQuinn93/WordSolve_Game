@@ -533,7 +533,6 @@ class WordSolveViewController: UIViewController {
             }
     func reset() {
         
-        showAnswerLabel.alpha = 0
         headerLabel.text = "Can you guess the Word?"
         
         firstGuess.removeAll()
@@ -2006,9 +2005,10 @@ class WordSolveViewController: UIViewController {
         }
            
             func solved() {
-            if Tries == 7 && correctAnswer == 0 {
-                showAnswerLabel.text = "Unlucky, The answer was \(wordSolveAnswer)"
-                showAnswerLabel.alpha = 1
+            if Tries == 6 && correctAnswer == 0 {
+                let correctAnswer = wordSolveAnswer[1] + wordSolveAnswer[2] + wordSolveAnswer[3] + wordSolveAnswer[4] + wordSolveAnswer[5] + wordSolveAnswer[6]
+                headerLabel.text = "Unlucky, The answer was \(correctAnswer)"
+                headerLabel.alpha = 1
 
             }else if correctAnswer == 1 {
                 bottomLabel.text = "Well done!"
